@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.javaorigin.test.apk"
+    android:versionName="1.0"
+    android:debuggable="true" android:versionCode="3">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"></uses-permission>
+
+    <uses-sdk android:minSdkVersion="4" android:maxSdkVersion="10" android:targetSdkVersion="4"></uses-sdk>
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application android:icon="@drawable/ic_launcher"  android:label="CallBlock" >
+
+        <receiver android:enabled="true" android:name=".PhoneReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+        <activity android:label="Alvie" android:name=".PrefActivity" android:launchMode="singleInstance" android:icon="@drawable/ic_launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:theme="@android:style/Theme.Dialog" android:label="Select Contact Number" android:name=".BlockSepcific" />
+        <activity  android:label="Select Contact Number" android:name=".SecondaryActivity" />
+        <activity android:theme="@android:style/Theme.Dialog" android:label="Select Contact Number" android:name=".BlockList" />
+    </application>
+</manifest>
